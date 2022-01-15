@@ -1,3 +1,3 @@
-unstop
+Neural Style Transfer
 
-Real time neural style transfer (nst) in python.
+Current version applies NST to the content image using a given style image. Generates "stylized.jpeg" within the data folder.
