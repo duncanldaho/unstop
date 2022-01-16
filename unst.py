@@ -40,7 +40,9 @@ hub_module = hub.load(
     "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2"
 )
 
-# Stylize image.
+# Stylize image:
+# content_image, style_image, and stylized_image are expected to be 4-D Tensors
+# with shapes [batch_size, image_height, image_width, 3].
 outputs = hub_module(tf.constant(content_image), tf.constant(style_image))
 stylized_image = outputs[0]
 
