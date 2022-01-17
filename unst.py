@@ -11,10 +11,10 @@ style_image = plt.imread("data/style.jpeg")
 content_image = content_image.astype(np.float32)[np.newaxis, ...] / 255.0
 style_image = style_image.astype(np.float32)[np.newaxis, ...] / 255.0
 
-# Optionally resize the images.
 # It is recommended that the style image is 256 pixels,
 # this size was used when training the style transfer network.
 style_image = tf.image.resize(style_image, (256, 256))
+
 # The content image can be any size.
 # content_image = tf.image.resize(content_image, (512, 512))
 
@@ -31,4 +31,6 @@ stylized_image = outputs[0]
 
 # Convert stylized_iamge tensor to numpy array.
 stylized_image_array = stylized_image[0].numpy()
+
+# Save numpy array as image.
 plt.imsave("data/stylized.jpeg", stylized_image_array)
