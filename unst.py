@@ -13,11 +13,9 @@ style_image = style_image.astype(np.float32)[np.newaxis, ...] / 255.0
 
 # It is recommended that the style image is 256 pixels,
 # this size was used when training the style transfer network.
-style_image = tf.image.resize(style_image, (256, 256))
-
+# style_image = tf.image.resize(style_image, (256, 256))
+style_image = tf.image.resize(style_image, (256, 256), preserve_aspect_ratio=True, antialias=True)
 # The content image can be any size.
-# content_image = tf.image.resize(content_image, (512, 512))
-
 # Load image stylization module.
 hub_module = hub.load(
     "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2"
