@@ -1,5 +1,18 @@
+import os
 import tensorflow as tf
 import tensorflow_hub as hub
+
+
+# JPEG/JPG compatibility.
+def get_image_path(data_dir, image_name):
+    """Checks data_dir for image_name with file ext. JPEG & JPG"""
+    jpeg_path = os.path.join(data_dir, "{}.jpeg".format(image_name))
+    if os.path.exists(jpeg_path):
+        return jpeg_path
+
+    jpg_path = os.path.join(data_dir, "{}.jpg".format(image_name))
+    if os.path.exists(jpg_path):
+        return jpg_path
 
 
 # Preprocess image data.
@@ -30,14 +43,14 @@ def postprocess(image):
 
 
 # Load raw JPEG data.
-content = tf.io.read_file("data/content.jpeg")
-style = tf.io.read_file("data/style.jpeg")
+content = tf.io.read_file(get_image_path("data/", "content"))
+style = tf.io.read_file(get_image_path("data/", "style"))
 
 # Load image stylization module.
 hub_module = hub.load(
     "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2"
 )
 
-# Generate and save stylized image.
+# Processes image data, generate and save stylized image.
 outputs = hub_module(preprocess(content), resize(preprocess(style)))
 tf.io.write_file("data/stylized.jpeg", postprocess(outputs))
