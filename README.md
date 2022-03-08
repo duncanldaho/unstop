@@ -3,10 +3,10 @@ A simple python script for [Neural Style Transfer](https://en.wikipedia.org/wiki
 
 ## Instructions:
 1. Download or clone the code.
-2. Inside of the main directory create a python virtual environment, activate the virtual environment, and install the modules.
+2. Inside of the main directory create a virtual environment, activate the environment, and install the modules.
 ```
-python3 -m venv venv_name
-source venv_name/bin/activate
+python3 -m venv unstop
+source unstop/bin/activate
 pip3 install -r requirements.txt
 ```
 3. Run the python script.
