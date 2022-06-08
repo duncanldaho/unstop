@@ -7,7 +7,7 @@ A simple python script for [Neural Style Transfer](https://en.wikipedia.org/wiki
 ```
 python3 -m venv unstop
 source unstop/bin/activate
-pip3 install -r requirements.txt
+pip3 install -r requirements
 ```
 3. Run the python script.
 ```
