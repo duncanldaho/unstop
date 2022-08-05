@@ -3,16 +3,15 @@ import tensorflow as tf
 import tensorflow_hub as hub
 
 
-# JPEG/JPG compatibility.
-def get_image_path(data_dir, image_name):
-    """Checks data_dir for image_name with file ext. JPEG & JPG"""
-    jpeg_path = os.path.join(data_dir, "{}.jpeg".format(image_name))
-    if os.path.exists(jpeg_path):
-        return jpeg_path
-
-    jpg_path = os.path.join(data_dir, "{}.jpg".format(image_name))
-    if os.path.exists(jpg_path):
-        return jpg_path
+# File extension sanity check.
+def extension_check(user_input):
+    """Checks if input file exists."""
+    if os.path.isfile(user_input):
+        return user_input
+    else:
+        print("Invalid input.")
+        user_input = extension_check(input("Image path: "))
+        return user_input
 
 
 # Preprocess image data.
@@ -42,9 +41,14 @@ def postprocess(image):
     return image
 
 
+# User input for image paths.
+content_path = extension_check(input("Content image path: "))
+style_path = extension_check(input("Style image path: "))
+stylized_path = input("Write path: ")
+
 # Load raw JPEG data.
-content = tf.io.read_file(get_image_path("data/", "content"))
-style = tf.io.read_file(get_image_path("data/", "style"))
+content = tf.io.read_file(content_path)
+style = tf.io.read_file(style_path)
 
 # Load image stylization module.
 hub_module = hub.load(
@@ -53,4 +57,4 @@ hub_module = hub.load(
 
 # Processes image data, generate and save stylized image.
 outputs = hub_module(preprocess(content), resize(preprocess(style)))
-tf.io.write_file("data/stylized.jpeg", postprocess(outputs))
+tf.io.write_file(stylized_path, postprocess(outputs))
