@@ -34,10 +34,15 @@ There are example images in the /data directory. The script applied
 the style from "style.jpeg" to "content.jpeg" and generates "stylized.jpeg".
 Unfortunately tensorflow has a lot of dependencies, so it is highly
 recommended to use a virtual environment. Unstop may not work with future
-versions of the required modules. It works the newest versions, but has been
+versions of the required modules. It works the newest versions, and has been
 confirmed to work with at least:
 ```
 numpy==1.22.1
 tensorflow==2.7.0
 tensorflow-hub==0.12.0.
+```
+This project works on a raspberry pi! Tested on the Pi 4 Model. Some guides
+recommend installing the libatlas package, but unstop will work without it. 
+```
+sudo apt install libatlas-base-dev
 ```
