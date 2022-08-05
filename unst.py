@@ -27,7 +27,7 @@ def preprocess(image):
 def resize(image):
     """Resize image to 256x256."""
     image = tf.image.resize(
-        image, (256, 256), preserve_aspect_ratio=True, antialias=True
+        image, (256, 256), preserve_aspect_ratio=True, antialias=False
     )
     return image
 
