@@ -1,16 +1,29 @@
 # unstop
-A simple python script for [Neural Style Transfer](https://en.wikipedia.org/wiki/Neural_Style_Transfer), using the pre-trained [fast arbitrary image style transfer](https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2) model from TensorFlow Hub.<br>
+A simple python script for [neural style transfer](https://en.wikipedia.org/wiki/Neural_Style_Transfer), using the pre-trained [fast arbitrary image style transfer](https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2) model.
 
-## Instructions:
+## Set up:
 1. Download or clone the code.
-2. Inside of the main directory create a virtual environment, activate the environment, and install the modules.
+2. Inside of the unstop directory create a virtual environment, activate the
+environment, and install the modules.
 ```
+# Create a virtual environment.
 python3 -m venv unstop
+# Activate the environment.
 source unstop/bin/activate
+# Install python modules.
 pip3 install -r requirements
 ```
-3. Run the python script.
+## Running:
+1. After set up, you only have to activate the environment and run the script.
 ```
+source unstop/bin/activate
 python3 unst.py
+# When finished, deactivate the environment.
+deactivate
 ```
-The script uses the images in the data directory. It applies the style from "style.jpeg" to "content.jpeg" and generates "stylized.jpeg".
+There are example images in the /data directory. The script applied the style
+from "style.jpeg" to "content.jpeg" and generates "stylized.jpeg". Unstop may
+not work with future versions of the required modules. It has worked with at 
+least: numpy 1.22.1, tensorflow 2.7.0, and tensorflow-hub 0.12.0. Unfortunately,
+tensorflow has a lot of dependencies, so it is highly recommended to use a
+virtual environment.
