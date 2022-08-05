@@ -33,11 +33,15 @@ deactivate
 ```
 ## Notes
 
+Try changing the values for the resize function: `preserve_aspect_ratio` and
+`antialias`. I typically preserve the aspect ratio and turn off anti-aliasing,
+the effects are sometimes quite subtle. 
+
 There are example images in the /data directory. The script applied
 the style from "style.jpeg" to "content.jpeg" and generates "stylized.jpeg".
 Unfortunately tensorflow has a lot of dependencies, so it is highly
 recommended to use a virtual environment. Unstop may not work with future
-versions of the required modules. It works the newest versions, and has been
+versions of the required modules. It works with the newest versions, and has been
 confirmed to work with at least:
 ```
 numpy==1.22.1
