@@ -8,8 +8,10 @@ environment, and install the modules.
 ```
 # Create a virtual environment.
 python3 -m venv unstop
+
 # Activate the environment.
 source unstop/bin/activate
+
 # Install python modules.
 pip3 install -r requirements
 ```
@@ -18,6 +20,7 @@ pip3 install -r requirements
 ```
 source unstop/bin/activate
 python3 unst.py
+
 # When finished, deactivate the environment.
 deactivate
 ```
