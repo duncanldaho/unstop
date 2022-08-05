@@ -48,7 +48,7 @@ numpy==1.22.1
 tensorflow==2.7.0
 tensorflow-hub==0.12.0.
 ```
-This project works on a raspberry pi, tested on the Pi 4 Model. Some guides
+This project works on a raspberry pi (tested on the model 4B). Some guides
 recommend installing the libatlas package, but unstop will work without it. 
 ```
 sudo apt install libatlas-base-dev
